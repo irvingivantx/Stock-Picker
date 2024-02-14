@@ -1,0 +1,21 @@
+#!/bin/bash
+
+rm -rf /Users/Irving/Programs/DiscordChatExporter.CLI/*.txt
+cd /Users/Irving/Programs/DiscordChatExporter.CLI
+echo -n "What month (01-12) on main chats? "
+read mainmonth
+echo -n "What day (00-30) on main chats? "
+read mainday
+echo -n "What month (01-12) on penny chats? "
+read month
+echo -n "What day (00-30) on penny chats? "
+read day
+
+dotnet DiscordChatExporter.Cli.dll export -t [secret goes here] -c 634553688605851660 -f PlainText --after "2021-$mainmonth-$mainday 00:00"
+dotnet DiscordChatExporter.Cli.dll export -t [secret goes here] -c 739888290995372056 -f PlainText --after "2021-$month-$day 00:00"
+dotnet DiscordChatExporter.Cli.dll export -t [secret goes here] -c 803447768113872929 -f PlainText --after "2021-$mainmonth-$mainday 00:00"
+dotnet DiscordChatExporter.Cli.dll export -t [secret goes here] -c 806268784863608853 -f PlainText --after "2021-$month-$day 00:00"
+dotnet DiscordChatExporter.Cli.dll export -t [secret goes here] -c 405778103047159808 -f PlainText --after "2021-$mainmonth-$mainday 00:00"
+cat *.txt >> all.txt
+cd /Users/Irving/Programs/searchticker/target
+java -cp searchticker-1.0.jar stocks.searchticker.main

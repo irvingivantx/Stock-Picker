@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /Users/Irving/Programs/searchticker/target
+java -cp searchticker-1.0.jar stocks.searchticker.main
